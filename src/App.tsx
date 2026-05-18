@@ -43,6 +43,7 @@ import {
   playDoubleBeep
 } from './utils';
 import type { MenuItem, RestaurantData, Order } from './utils';
+import logoImg from './assets/images/logo.png';
 
 // Pixel-perfect Lucide-like custom inline SVGs for Instagram and Facebook
 const Instagram = ({ size = 20, ...props }: React.SVGProps<SVGSVGElement> & { size?: number }) => (
@@ -186,7 +187,7 @@ function App() {
       {/* 1. Loader Screen */}
       {(loading || !fadeLoader) && (
         <div className={`loader-overlay ${fadeLoader ? 'fade-out' : ''}`}>
-          <div className="loader-title">SKYLARK</div>
+          <img src={logoImg} alt="Skylark Logo" style={{ height: '115px', width: 'auto', marginBottom: '20px', objectFit: 'contain' }} />
           <div className="loader-line" />
         </div>
       )}
@@ -335,8 +336,8 @@ function Navbar({ currentPath, navigate }: { currentPath: string; navigate: (pat
   if (isScanMode) {
     return (
       <nav className="desktop-navbar scrolled scan-navbar" style={{ justifyContent: "space-between", height: "70px", padding: "0 24px" }}>
-        <div className="nav-logo" style={{ cursor: "default", pointerEvents: "none", color: "var(--bg-olive)" }}>
-          SKYLARK
+        <div className="nav-logo" style={{ cursor: "default", pointerEvents: "none", display: "flex", alignItems: "center", height: "100%" }}>
+          <img src={logoImg} alt="Skylark Logo" style={{ height: "55px", width: "auto", objectFit: "contain" }} />
         </div>
         <div style={{
           backgroundColor: "var(--accent-gold)",
@@ -387,8 +388,8 @@ function Navbar({ currentPath, navigate }: { currentPath: string; navigate: (pat
       </div>
 
       {/* Centered Logo */}
-      <div className="nav-logo" onClick={() => navigate("/")}>
-        SKYLARK
+      <div className="nav-logo" onClick={() => navigate("/")} style={{ display: "flex", alignItems: "center", height: "100%" }}>
+        <img src={logoImg} alt="Skylark Logo" style={{ height: "70px", width: "auto", objectFit: "contain", transition: "transform 0.3s ease" }} className="logo-hover" />
       </div>
 
       {/* Right side links */}
@@ -478,7 +479,7 @@ function Footer({ db, navigate }: { db: RestaurantData; navigate: (path: string)
         
         {/* Col 1: Identity */}
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-          <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "32px", fontWeight: 300, color: "var(--bg-champagne)", letterSpacing: "0.08em" }}>SKYLARK</h3>
+          <img src={logoImg} alt="Skylark Logo" style={{ height: "85px", width: "auto", alignSelf: "flex-start", objectFit: "contain" }} />
           <p className="text-italic-quote" style={{ fontSize: "14px", color: "var(--accent-amber)" }}>
             “ {db.settings.tagline} ”
           </p>
