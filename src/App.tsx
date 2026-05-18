@@ -44,6 +44,7 @@ import {
 } from './utils';
 import type { MenuItem, RestaurantData, Order } from './utils';
 import logoImg from './assets/images/logo.png';
+import acceuilImg from './assets/images/acceuil.jpg';
 
 // Pixel-perfect Lucide-like custom inline SVGs for Instagram and Facebook
 const Instagram = ({ size = 20, ...props }: React.SVGProps<SVGSVGElement> & { size?: number }) => (
@@ -835,7 +836,7 @@ function Home({ db, navigate }: { db: RestaurantData; navigate: (path: string) =
             {/* Right side image */}
             <div>
               <div style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80')",
+                backgroundImage: `url('${acceuilImg}')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 aspectRatio: "4/5",
